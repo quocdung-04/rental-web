@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Manager console - AnCư</title>
+    <meta name="description" content="Manage apartments, tenants and maintenance requests.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Lora:wght@500;600;700&display=swap">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+<!-- Icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+        <symbol id="i-building" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4M10 10h4M10 14h4M10 18h4"/></symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+        <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+        <symbol id="i-key" viewBox="0 0 24 24"><path d="m21 2-9.6 9.6"/><circle cx="7.5" cy="15.5" r="5.5"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></symbol>
+        <symbol id="i-bed" viewBox="0 0 24 24"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></symbol>
+        <symbol id="i-bath" viewBox="0 0 24 24"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><path d="M10 5 8 7"/><path d="M2 12h20"/><path d="M7 19v2"/><path d="M17 19v2"/></symbol>
+        <symbol id="i-ruler" viewBox="0 0 24 24"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/></symbol>
+        <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+        <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+    </defs>
+</svg>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="AnCư home">
+            <span class="brand-mark"><svg class="icon"><use href="#i-building"/></svg></span>
+            <span class="brand-text">
+                <span class="brand-name">AnCư</span>
+                <span class="brand-tag">Rentals &amp; maintenance</span>
+            </span>
+        </a>
+        <nav class="main-nav" aria-label="Main">
+            <a href="index.html#listings">Find a home</a>
+            <a href="report.html">Report an issue</a>
+        </nav>
+        <button type="button" class="btn btn-outline" id="btnSignOut" style="display:none">Sign out</button>
+    </div>
+</header>
+
+<main>
+    <!-- ============ SIGN IN ============ -->
+    <section class="section" id="loginPanel">
+        <div class="container">
+            <form id="loginForm" class="form-card login-card" novalidate autocomplete="on">
+                <p class="eyebrow">Property managers</p>
+                <h1 class="page-title">Sign in</h1>
+                <div id="loginMessage" role="alert"></div>
+                <div class="form-row">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" autocomplete="username" maxlength="60">
+                </div>
+                <div class="form-row">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" autocomplete="current-password" maxlength="100">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- ============ DASHBOARD ============ -->
+    <section class="section" id="dashboard" style="display:none">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <p class="eyebrow">Manager console</p>
+                    <h1 class="page-title" id="panelTitle">Maintenance requests</h1>
+                    <p class="section-lead" id="panelLead"></p>
+                </div>
+                <button type="button" class="btn btn-primary" id="btnAdd"><span id="btnAddLabel">Add</span></button>
+            </div>
+
+            <div class="tabs" role="tablist" aria-label="Records">
+                <button type="button" class="tab is-active" role="tab" data-tab="requests">Maintenance requests</button>
+                <button type="button" class="tab" role="tab" data-tab="properties">Properties</button>
+                <button type="button" class="tab" role="tab" data-tab="tenants">Tenants</button>
+            </div>
+
+            <div class="toolbar">
+                <label class="field field-keyword">
+                    <svg class="icon"><use href="#i-search"/></svg>
+                    <input type="search" id="filterKeyword" maxlength="100" aria-label="Search">
+                </label>
+                <label class="field field-status" id="filterStatusWrap">
+                    <select id="filterStatus" aria-label="Filter by status"></select>
+                </label>
+                <p class="result-count" id="resultCount" aria-live="polite"></p>
+            </div>
+
+            <div id="message" role="status" aria-live="polite"></div>
+
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead id="tableHead"></thead>
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- ============ ADD / EDIT DIALOG ============ -->
+<dialog id="formDialog" class="dialog" aria-labelledby="formTitle">
+    <form id="recordForm" novalidate autocomplete="off">
+        <h2 id="formTitle" class="dialog-title"></h2>
+        <div id="formMessage" role="alert"></div>
+        <div id="formFields" class="form-grid"></div>
+        <div class="form-actions">
+            <button type="button" class="btn btn-outline" id="btnFormCancel">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="btnFormSave">Save</button>
+        </div>
+    </form>
+</dialog>
+
+<!-- ============ DETAIL DIALOG ============ -->
+<dialog id="detailDialog" class="dialog" aria-labelledby="detailTitle">
+    <h2 id="detailTitle" class="dialog-title"></h2>
+    <dl id="detailList" class="detail-list"></dl>
+    <div class="form-actions">
+        <button type="button" class="btn btn-outline" id="btnDetailClose">Close</button>
+    </div>
+</dialog>
+
+<!-- ============ DELETE CONFIRM DIALOG ============ -->
+<dialog id="confirmDialog" class="dialog" aria-labelledby="confirmTitle">
+    <h2 id="confirmTitle" class="dialog-title">Delete this record?</h2>
+    <p id="confirmText"></p>
+    <div class="form-actions">
+        <button type="button" class="btn btn-outline" id="btnConfirmNo">Keep it</button>
+        <button type="button" class="btn btn-danger" id="btnConfirmYes">Yes, delete</button>
+    </div>
+</dialog>
+
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <a class="brand footer-brand" href="index.html" aria-label="AnCư home">
+            <span class="brand-mark"><svg class="icon"><use href="#i-building"/></svg></span>
+            <span class="brand-text">
+                <span class="brand-name">AnCư</span>
+                <span class="brand-tag">Rentals &amp; maintenance</span>
+            </span>
+        </a>
+        <p class="footer-about">AnCư keeps rental listings, tenant records and maintenance history in one place, so nothing gets lost between a tenant’s call and a repair visit.</p>
+    </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/manager.js"></script>
+</body>
+</html>

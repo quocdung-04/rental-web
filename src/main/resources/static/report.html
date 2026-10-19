@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Report a maintenance issue - AnCư</title>
+    <meta name="description" content="Report a maintenance issue in your rented apartment.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Lora:wght@500;600;700&display=swap">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+<!-- Icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+        <symbol id="i-building" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4M10 10h4M10 14h4M10 18h4"/></symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+        <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+        <symbol id="i-key" viewBox="0 0 24 24"><path d="m21 2-9.6 9.6"/><circle cx="7.5" cy="15.5" r="5.5"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></symbol>
+        <symbol id="i-bed" viewBox="0 0 24 24"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></symbol>
+        <symbol id="i-bath" viewBox="0 0 24 24"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><path d="M10 5 8 7"/><path d="M2 12h20"/><path d="M7 19v2"/><path d="M17 19v2"/></symbol>
+        <symbol id="i-ruler" viewBox="0 0 24 24"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/></symbol>
+        <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+        <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+        <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></symbol>
+        <symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></symbol>
+        <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></symbol>
+        <symbol id="i-calendar" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+        <symbol id="i-clipboard" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></symbol>
+    </defs>
+</svg>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="AnCư home">
+            <span class="brand-mark"><svg class="icon"><use href="#i-building"/></svg></span>
+            <span class="brand-text">
+                <span class="brand-name">AnCư</span>
+                <span class="brand-tag">Rentals &amp; maintenance</span>
+            </span>
+        </a>
+        <nav class="main-nav" aria-label="Main">
+            <a href="index.html#listings">Find a home</a>
+            <a href="report.html" class="is-active" aria-current="page">Report an issue</a>
+        </nav>
+        <a class="btn btn-outline" href="manager.html">Manager sign in</a>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <section class="page-intro">
+            <p class="eyebrow">Maintenance</p>
+            <h1 class="page-title">Report a maintenance issue</h1>
+            <p class="page-lead">Tell us what is wrong and where. Requests can only be filed for apartments that are currently occupied, so the queue only contains real, live issues.</p>
+        </section>
+
+        <div class="page-layout">
+            <div class="page-main">
+                <div id="message" role="status" aria-live="polite"></div>
+
+                <form id="reportForm" novalidate autocomplete="off">
+                    <section class="form-section">
+                        <div class="form-section-head">
+                            <h2>The apartment</h2>
+                            <p>Pick the apartment you rent. Only occupied units appear here.</p>
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-row form-row-wide">
+                                <label for="propertyId">Apartment <span class="req">*</span></label>
+                                <select id="propertyId" name="propertyId"><option value="">Loading apartments…</option></select>
+                                <p class="field-hint">The manager uses this to route the request to the right building.</p>
+                                <p class="field-error" data-for="propertyId"></p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="form-section">
+                        <div class="form-section-head">
+                            <h2>Your contact details</h2>
+                            <p>If this email is already on file, the request is attached to your existing tenant record instead of creating a duplicate.</p>
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-row">
+                                <label for="fullName">Full name <span class="req">*</span></label>
+                                <input type="text" id="fullName" name="fullName" maxlength="100" placeholder="Nguyen Minh Anh">
+                                <p class="field-error" data-for="fullName"></p>
+                            </div>
+                            <div class="form-row">
+                                <label for="email">Email <span class="req">*</span></label>
+                                <input type="email" id="email" name="email" maxlength="100" placeholder="you@example.com">
+                                <p class="field-error" data-for="email"></p>
+                            </div>
+                            <div class="form-row form-row-wide">
+                                <label for="phone">Phone <span class="req">*</span></label>
+                                <input type="tel" id="phone" name="phone" maxlength="20" placeholder="0903 221 448" inputmode="tel">
+                                <p class="field-hint">Used only to arrange access for the repair visit.</p>
+                                <p class="field-error" data-for="phone"></p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="form-section">
+                        <div class="form-section-head">
+                            <h2>What is wrong</h2>
+                            <p>Choose the closest category and how urgent it feels.</p>
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-row">
+                                <label for="category">Category <span class="req">*</span></label>
+                                <select id="category" name="category"></select>
+                                <p class="field-hint" id="categoryHint"></p>
+                                <p class="field-error" data-for="category"></p>
+                            </div>
+                            <div class="form-row">
+                                <label for="priority">Priority <span class="req">*</span></label>
+                                <select id="priority" name="priority">
+                                    <option value="LOW">Low – can wait</option>
+                                    <option value="NORMAL" selected>Normal</option>
+                                    <option value="HIGH">High – affects daily life</option>
+                                </select>
+                                <p class="field-error" data-for="priority"></p>
+                            </div>
+                            <div class="form-row form-row-wide">
+                                <label for="description">Description <span class="req">*</span></label>
+                                <textarea id="description" name="description" rows="5" maxlength="2000" placeholder="The kitchen sink drains very slowly and there is a damp smell under the cabinet."></textarea>
+                                <p class="field-hint"><span id="descCount">0</span>/2000 characters. Mention when it started and anything you already tried.</p>
+                                <p class="field-error" data-for="description"></p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="form-actions form-actions-start">
+                        <button type="submit" class="btn btn-primary" id="btnSubmit"><svg class="icon"><use href="#i-send"/></svg> Send request</button>
+                        <a class="btn btn-ghost" href="index.html">Cancel</a>
+                    </div>
+                </form>
+
+                <section id="successPanel" class="form-section success-card" style="display:none" role="status">
+                    <h2>Request received</h2>
+                    <p class="success-code">Your reference code <strong id="refCode"></strong></p>
+                    <p id="successText"></p>
+                    <div class="form-actions form-actions-start">
+                        <button type="button" class="btn btn-primary" id="btnAnother">Report another issue</button>
+                        <a class="btn btn-ghost" href="index.html">Back to homepage</a>
+                    </div>
+                </section>
+            </div>
+
+            <aside class="page-side">
+                <div class="side-card">
+                    <h3><svg class="icon icon-teal"><use href="#i-clipboard"/></svg> What happens next</h3>
+                    <p>You get a reference code immediately. The manager replies within one working day, and the status moves from Pending to In progress to Done.</p>
+                </div>
+                <div class="side-card">
+                    <h3><svg class="icon icon-clay"><use href="#i-alert"/></svg> Emergencies</h3>
+                    <p>Gas smell, flooding or no power to the whole unit: call the building line first. This form is for issues that can wait for a scheduled visit.</p>
+                </div>
+                <p class="note note-sand"><svg class="icon"><use href="#i-wrench"/></svg> <span>Submissions are validated on the server and written to the <strong>maintenance_requests</strong> table with a generated reference code.</span></p>
+            </aside>
+        </div>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <a class="brand footer-brand" href="index.html" aria-label="AnCư home">
+            <span class="brand-mark"><svg class="icon"><use href="#i-building"/></svg></span>
+            <span class="brand-text">
+                <span class="brand-name">AnCư</span>
+                <span class="brand-tag">Rentals &amp; maintenance</span>
+            </span>
+        </a>
+        <p class="footer-about">AnCư keeps rental listings, tenant records and maintenance history in one place, so nothing gets lost between a tenant’s call and a repair visit.</p>
+    </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/report.js"></script>
+</body>
+</html>
